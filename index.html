@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Community Wellbeing Hub - Supporting local residents with free health, mental wellbeing, social activities, and advice services.">
+  <title>Community Wellbeing Hub | Local Health & Support Services</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Screen Reader Skip Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Emergency Helpline & Accessibility Bar -->
+  <header>
+    <div class="header-top-bar" role="region" aria-label="Crisis helpline and display accessibility options">
+      <div class="top-bar-inner">
+        <div class="crisis-callout">
+          <span class="crisis-badge">Urgent Support</span>
+          <span>In a mental health crisis? Call <strong>NHS 111</strong> or Samaritans at <a href="tel:116123">116 123</a> (Free, 24/7)</span>
+        </div>
+        <div class="accessibility-controls">
+          <span>Accessibility:</span>
+          <button id="toggle-contrast" class="acc-btn" aria-pressed="false" title="Switch high contrast mode">High Contrast</button>
+          <button id="font-decrease" class="acc-btn" title="Decrease font size">A-</button>
+          <button id="font-reset" class="acc-btn" title="Reset font size">Normal</button>
+          <button id="font-increase" class="acc-btn" title="Increase font size">A+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="nav-container">
+        <a href="#home" class="brand-wrapper">
+          <div class="brand-icon" aria-hidden="true">♥</div>
+          <div class="brand-text">
+            <h1>Wellbeing Hub</h1>
+            <span>Coventry Community Support</span>
+          </div>
+        </a>
+
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+          ☰ Menu
+        </button>
+
+        <ul id="nav-links" class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#services">Services Directory</a></li>
+          <li><a href="#events">Events & Workshops</a></li>
+          <li><a href="#stories">Community Stories</a></li>
+          <li><a href="#contact">Contact & Support</a></li>
+          <li><button class="btn btn-primary btn-sm" onclick="openBookingForService('General Hub Support Consultation')">Book a Session</button></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="section-tag">A Free Service for All Residents</span>
+          <h2>Your Local Space for <span>Health, Connection, & Advice</span></h2>
+          <p>
+            The Community Wellbeing Hub brings together free healthcare advice, mental health guidance, gentle fitness sessions, and friendly social groups. We are here to support every resident, regardless of age, background, or ability.
+          </p>
+          <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary">Find Support Services</a>
+            <a href="#events" class="btn btn-secondary">Upcoming Activities</a>
+            <a href="#contact" class="btn btn-accent">Speak to Our Team</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Free & Confidential</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">45+</span>
+              <span class="stat-label">Weekly Groups</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">Step-Free</span>
+              <span class="stat-label">Accessible Venue</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Need help finding the right group?</h3>
+          <p>
+            You can drop by in person, give us a telephone call, or use our simple search tools below. No medical referral is necessary for any of our community groups or social mornings.
+          </p>
+          <div style="background: #f8fafc; padding: 14px; border-radius: 6px; border-left: 4px solid var(--secondary); margin-bottom: 16px;">
+            <strong style="color: var(--text-dark); display: block; margin-bottom: 4px;">Opening Times This Week:</strong>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Monday to Friday: 8:30am – 6:00pm<br>Saturday Socials: 9:30am – 2:00pm</span>
+          </div>
+          <button class="btn btn-secondary btn-block" onclick="startBookingFlow('General Wellbeing Triage Chat', 'Drop-in anytime during opening hours')">
+            Request a Friendly Callback
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Category Cards -->
+    <section class="section-container" style="padding-top: 32px; padding-bottom: 16px;">
+      <h3 style="font-size: 1.3rem; margin-bottom: 16px; color: var(--text-dark);">Explore Support by Area:</h3>
+      <div class="quick-categories">
+        <div class="quick-cat-card" onclick="filterByCategory('mental')">
+          <span class="cat-icon" aria-hidden="true">🧠</span>
+          <h4>Mental Health</h4>
+          <p>Counselling, anxiety groups & talking therapy</p>
+        </div>
+        <div class="quick-cat-card" onclick="filterByCategory('physical')">
+          <span class="cat-icon" aria-hidden="true">🏃</span>
+          <h4>Physical Activity</h4>
+          <p>Chair yoga, walking clubs & gentle mobility</p>
+        </div>
+        <div class="quick-cat-card" onclick="filterByCategory('family')">
+          <span class="cat-icon" aria-hidden="true">👨‍👩‍👧</span>
+          <h4>Family & Parents</h4>
+          <p>Toddler mornings, parenting advice & youth club</p>
+        </div>
+        <div class="quick-cat-card" onclick="filterByCategory('senior')">
+          <span class="cat-icon" aria-hidden="true">🫖</span>
+          <h4>Seniors & Companionship</h4>
+          <p>Tea socials, digital confidence & memory cafes</p>
+        </div>
+        <div class="quick-cat-card" onclick="filterByCategory('financial')">
+          <span class="cat-icon" aria-hidden="true">💡</span>
+          <h4>Money & Advice</h4>
+          <p>Energy grants, benefit checks & budgeting</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Directory Section -->
+    <section id="services" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Community Services</span>
+        <h2 class="section-title">Directory of Local Support Services</h2>
+        <p class="section-lead">
+          All services listed below are hosted at our hub or in nearby neighbourhood partner spaces. Filter by category or search to find what you need.
+        </p>
+      </div>
+
+      <!-- Search and Filter Controls -->
+      <div class="filter-toolbar" role="search" aria-label="Service directory filter">
+        <div class="search-row">
+          <input 
+            type="text" 
+            id="service-search-input" 
+            class="search-input" 
+            placeholder="Search services by keyword (e.g. anxiety, yoga, tea, digital, debt)..." 
+            aria-label="Search services"
+          >
+        </div>
+        <div class="category-pills" role="tablist" aria-label="Service categories">
+          <button class="filter-pill active" data-category="all" role="tab" aria-selected="true">All Services</button>
+          <button class="filter-pill" data-category="mental" role="tab" aria-selected="false">Mental Health</button>
+          <button class="filter-pill" data-category="physical" role="tab" aria-selected="false">Physical Activity</button>
+          <button class="filter-pill" data-category="family" role="tab" aria-selected="false">Family Support</button>
+          <button class="filter-pill" data-category="senior" role="tab" aria-selected="false">Senior Care</button>
+          <button class="filter-pill" data-category="financial" role="tab" aria-selected="false">Financial & Debt Advice</button>
+        </div>
+      </div>
+
+      <!-- Dynamic Cards Container -->
+      <div id="services-grid-container" class="services-grid" aria-live="polite">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Events & Calendar Section -->
+    <section id="events" class="section-container" style="background-color: #f1f5f9; border-radius: 12px; margin-top: 20px;">
+      <div class="section-header">
+        <span class="section-tag">What's On This Month</span>
+        <h2 class="section-title">Workshops, Activities & Event Calendar</h2>
+        <p class="section-lead">
+          Join our free weekly sessions. You can browse the event list or look at our monthly calendar grid to reserve your free place in advance.
+        </p>
+      </div>
+
+      <div class="calendar-controls">
+        <div class="view-toggle" role="group" aria-label="Switch calendar view format">
+          <button id="view-btn-list" class="view-btn active">List of Upcoming Events</button>
+          <button id="view-btn-cal" class="view-btn">Monthly Calendar View</button>
+        </div>
+        <div style="font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">
+          Showing: December 2026 Programme
+        </div>
+      </div>
+
+      <!-- Events List View -->
+      <div id="events-cards-container" class="events-list-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Events Calendar View (Hidden by default) -->
+      <div id="calendar-table-view" class="calendar-table-container" style="display: none;">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- How We Support You Steps -->
+    <section class="section-container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Simple & Supportive</span>
+        <h2 class="section-title">How To Access Support at the Hub</h2>
+        <p class="section-lead" style="margin: 0 auto;">
+          We designed our hub services to be straightforward with zero complicated paperwork.
+        </p>
+      </div>
+
+      <div class="help-steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Browse or Ask Us</h3>
+          <p>Explore our directory online, give our friendly staff a call, or simply walk through our doors on Victoria Street.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Book or Drop By</h3>
+          <p>Reserve a spot online with our simple 3-step booking tool, or drop into any open social session without booking.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Receive Gentle Care</h3>
+          <p>Meet supportive volunteers, trained practitioners, and friendly neighbours in a comfortable, pressure-free setting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community News & Stories -->
+    <section id="stories" class="section-container" style="background-color: #ffffff; border-radius: 12px; border: 1px solid var(--border-color);">
+      <div class="section-header">
+        <span class="section-tag">Real Impact</span>
+        <h2 class="section-title">Community News & Resident Stories</h2>
+        <p class="section-lead">
+          Read how neighbours in our region have rebuilt their confidence, learned practical skills, and made lasting friendships.
+        </p>
+      </div>
+
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="news-image-placeholder" style="background: linear-gradient(135deg, #1e3a8a, #0284c7);">
+            🌳
+          </div>
+          <div class="news-content">
+            <span class="news-date">Published 18 November 2026</span>
+            <h3>How Arthur Overcame Loneliness on Saturday Morning Walks</h3>
+            <p>
+              "After losing my wife last year, I spent days without speaking to anyone. Joining the Men's Wellbeing Walk gave me a reason to pull on my trainers again. Nobody judges you; we just chat and have a brew afterwards."
+            </p>
+            <a href="#stories" style="font-weight: 700; color: var(--primary); text-decoration: underline;">Read Arthur's Full Story</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image-placeholder" style="background: linear-gradient(135deg, #0f766e, #14b8a6);">
+            🍲
+          </div>
+          <div class="news-content">
+            <span class="news-date">Published 10 November 2026</span>
+            <h3>Budget Cooking & Nutrition Clubs for Young Families</h3>
+            <p>
+              Over 30 local parents took part in our slow-cooker workshop this month, sharing healthy budget recipes and taking home free ingredient recipe packs provided by regional food alliances.
+            </p>
+            <a href="#stories" style="font-weight: 700; color: var(--secondary); text-decoration: underline;">See Recipes & Photos</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image-placeholder" style="background: linear-gradient(135deg, #d97706, #f59e0b);">
+            ✨
+          </div>
+          <div class="news-content">
+            <span class="news-date">Published 2 November 2026</span>
+            <h3>New Sensory Quiet Space Opens in the Community Library Wing</h3>
+            <p>
+              Designed alongside neurodivergent residents, our newly opened quiet room offers low-glare lighting, noise-cancelling headphones, and comfortable seating for anyone needing a breather.
+            </p>
+            <a href="#stories" style="font-weight: 700; color: var(--accent); text-decoration: underline;">Explore the Quiet Space</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact & Support Section -->
+    <section id="contact" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">We Are Here For You</span>
+        <h2 class="section-title">Get In Touch & Support Enquiries</h2>
+        <p class="section-lead">
+          Have a question about our services, want to refer a family member, or interested in volunteering? Send us a message or pop into our reception desk.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Interactive Contact Form -->
+        <div class="contact-info-card">
+          <h3>Send a Confidential Enquiry</h3>
+          <div id="contact-alert-msg" style="display: none; background: #dcfce7; border: 1px solid #86efac; color: #166534; padding: 12px; border-radius: 6px; margin-bottom: 16px; font-weight: 600;">
+            ✓ Thank you! Your message has been sent to our hub support staff. We will reply within 1 working day.
+          </div>
+          <form id="support-contact-form">
+            <div class="form-group">
+              <label for="c-name">Full Name <span style="color: var(--danger);">*</span></label>
+              <input type="text" id="c-name" class="form-control" placeholder="e.g. Margaret Taylor" required>
+            </div>
+            <div class="form-group">
+              <label for="c-email">Email Address or Phone Number <span style="color: var(--danger);">*</span></label>
+              <input type="text" id="c-email" class="form-control" placeholder="e.g. margaret@example.co.uk or 07123 456789" required>
+            </div>
+            <div class="form-group">
+              <label for="c-category">What would you like to discuss?</label>
+              <select id="c-category" class="form-control">
+                <option value="general">General Information</option>
+                <option value="mental">Mental Health & Talking Therapy</option>
+                <option value="activities">Exercise & Social Activities</option>
+                <option value="family">Family or Child Support</option>
+                <option value="volunteer">Volunteering Opportunities</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="c-msg">How can we assist you? <span style="color: var(--danger);">*</span></label>
+              <textarea id="c-msg" class="form-control" rows="4" placeholder="Feel free to write as much or as little as you like..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit Enquiry</button>
+          </form>
+        </div>
+
+        <!-- Location & Details -->
+        <div class="contact-info-card">
+          <h3>Visit Our Central Hub</h3>
+          <div class="contact-detail-row">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div>
+              <strong>Address:</strong><br>
+              Coventry Community Wellbeing Centre<br>
+              14-18 Victoria Street, Coventry, CV1 4JH
+            </div>
+          </div>
+          <div class="contact-detail-row">
+            <div class="contact-icon" aria-hidden="true">📞</div>
+            <div>
+              <strong>Direct Phone:</strong><br>
+              <a href="tel:02476998877" style="color: var(--primary); font-weight: 700;">024 7699 8877</a><br>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">(Free to call from all UK landlines and mobiles)</span>
+            </div>
+          </div>
+          <div class="contact-detail-row">
+            <div class="contact-icon" aria-hidden="true">✉</div>
+            <div>
+              <strong>Support Email:</strong><br>
+              <a href="mailto:support@coventrywellbeinghub.org.uk" style="color: var(--primary);">support@coventrywellbeinghub.org.uk</a>
+            </div>
+          </div>
+
+          <h4 style="margin-top: 24px; margin-bottom: 8px; color: var(--primary);">Reception Opening Hours:</h4>
+          <table class="contact-hours-table" aria-label="Reception desk opening hours">
+            <tbody>
+              <tr>
+                <td>Monday – Thursday</td>
+                <td>8:30am – 6:00pm</td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td>8:30am – 5:00pm</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>9:30am – 2:00pm</td>
+              </tr>
+              <tr>
+                <td>Sunday & Bank Holidays</td>
+                <td>Closed (Emergency phone active)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ Accordion Component -->
+      <div class="accordion" style="margin-top: 40px;">
+        <h3 style="font-size: 1.4rem; margin-bottom: 16px; color: var(--primary);">Frequently Asked Questions</h3>
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>Do I need a doctor's referral to attend sessions or workshops?</span>
+            <span class="accordion-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="accordion-content">
+            No referral is needed. All community groups, activity workshops, and advice sessions are self-referral and open to all residents in our area.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>Are there any costs or hidden membership fees?</span>
+            <span class="accordion-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="accordion-content">
+            Every session and workshop is 100% free of charge, funded by our regional local authority and public health partnerships.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>Is the building accessible for wheelchairs and prams?</span>
+            <span class="accordion-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="accordion-content">
+            Yes, our venue has step-free ground-level access, wide automated entrance doors, an accessible passenger lift, and accessible gender-neutral washrooms with adult changing facilities.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Multi-Step Interactive Booking Wizard Modal -->
+  <div id="booking-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Book a Free Community Workshop</h3>
+        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close booking modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Progress Bar Indicator -->
+        <div class="wizard-progress" aria-hidden="true">
+          <div id="node-step-1" class="wizard-step-node active">
+            <div class="node-circle">1</div>
+            <span class="node-label">Details</span>
+          </div>
+          <div id="node-step-2" class="wizard-step-node">
+            <div class="node-circle">2</div>
+            <span class="node-label">Session</span>
+          </div>
+          <div id="node-step-3" class="wizard-step-node">
+            <div class="node-circle">3</div>
+            <span class="node-label">Review</span>
+          </div>
+        </div>
+
+        <!-- Step 1: Attendee Info -->
+        <div id="wizard-step-1" class="form-step active">
+          <h4 style="font-size: 1.1rem; margin-bottom: 14px; color: var(--primary);">Step 1: Your Contact Details</h4>
+          <div class="form-group">
+            <label for="book-name">Full Name <span style="color: var(--danger);">*</span></label>
+            <input type="text" id="book-name" class="form-control" placeholder="e.g. Arthur Pendelton" required>
+            <div id="err-name" class="error-msg">Please enter your name to continue.</div>
+          </div>
+          <div class="form-group">
+            <label for="book-email">Email Address <span style="color: var(--danger);">*</span></label>
+            <input type="email" id="book-email" class="form-control" placeholder="e.g. arthur@example.com" required>
+            <div id="err-email" class="error-msg">Please provide a valid email so we can send your confirmation.</div>
+          </div>
+          <div class="form-group">
+            <label for="book-phone">Telephone (Optional)</label>
+            <input type="tel" id="book-phone" class="form-control" placeholder="e.g. 07700 900123">
+            <span class="form-hint">Used only if there is an urgent time change or venue alert.</span>
+          </div>
+          <div class="form-group">
+            <label for="book-age">Age Bracket</label>
+            <select id="book-age" class="form-control">
+              <option value="Under 18">Under 18</option>
+              <option value="18-24">18 - 24</option>
+              <option value="25-44" selected>25 - 44</option>
+              <option value="45-64">45 - 64</option>
+              <option value="65+">65 and above</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="book-needs">Accessibility or Support Requirements (Optional)</label>
+            <input type="text" id="book-needs" class="form-control" placeholder="e.g. Wheelchair space, hearing loop, large print handout">
+          </div>
+          <div class="form-actions">
+            <button id="wizard-cancel-btn" type="button" class="btn btn-secondary">Cancel</button>
+            <button id="step1-next-btn" type="button" class="btn btn-primary">Continue to Step 2 →</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Choose Workshop / Slot -->
+        <div id="wizard-step-2" class="form-step">
+          <h4 style="font-size: 1.1rem; margin-bottom: 14px; color: var(--primary);">Step 2: Confirm Activity or Session</h4>
+          <div class="form-group">
+            <label for="book-activity-select">Select Workshop or Support Service</label>
+            <select id="book-activity-select" class="form-control">
+              <option value="Managing Stress & Anxiety Workshop">Managing Stress & Anxiety Workshop (Thu 12 Dec, 1:00pm)</option>
+              <option value="Gentle Community Tai Chi & Balance">Gentle Community Tai Chi & Balance (Sat 14 Dec, 10:30am)</option>
+              <option value="Winter Energy Bills & Money Saving Clinic">Winter Energy Bills & Money Clinic (Mon 16 Dec, 11:00am)</option>
+              <option value="Creative Arts for Wellbeing: Watercolour & Clay">Creative Arts for Wellbeing (Wed 18 Dec, 2:00pm)</option>
+              <option value="Older Adults Smartphone & Internet Workshop">Older Adults Smartphone & Internet (Fri 20 Dec, 10:00am)</option>
+              <option value="NHS Talking Therapies & Counselling">NHS Talking Therapies Consultation</option>
+              <option value="Gentle Chair Yoga & Mobility Group">Gentle Chair Yoga & Mobility Group</option>
+              <option value="Parent & Toddler Play & Learn">Parent & Toddler Play & Learn</option>
+              <option value="General Hub Support Consultation">General Hub Support Consultation</option>
+            </select>
+          </div>
+          <div class="booking-summary-box">
+            <p style="font-size: 0.9rem; color: #475569;">
+              <strong>Note on attendance:</strong> If you are unable to attend, please let us know so we can give your spot to someone on our waiting list.
+            </p>
+          </div>
+          <div class="form-actions">
+            <button id="step2-back-btn" type="button" class="btn btn-secondary">← Back</button>
+            <button id="step2-next-btn" type="button" class="btn btn-primary">Review Details →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Review & Terms -->
+        <div id="wizard-step-3" class="form-step">
+          <h4 style="font-size: 1.1rem; margin-bottom: 14px; color: var(--primary);">Step 3: Review Your Registration</h4>
+          <div class="booking-summary-box">
+            <div class="summary-row">
+              <span class="summary-label">Attendee Name:</span>
+              <span id="sum-name" class="summary-value">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Contact Email:</span>
+              <span id="sum-email" class="summary-value">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Phone:</span>
+              <span id="sum-phone" class="summary-value">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Selected Activity:</span>
+              <span id="sum-activity" class="summary-value">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Date / Time:</span>
+              <span id="sum-date" class="summary-value">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Special Needs:</span>
+              <span id="sum-needs" class="summary-value">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Total Cost:</span>
+              <span class="summary-value" style="color: var(--success);">£0.00 (Free)</span>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 16px;">
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-weight: normal; font-size: 0.9rem; cursor: pointer;">
+              <input type="checkbox" id="book-terms" style="margin-top: 3px; min-height: 20px; min-width: 20px;">
+              <span>I confirm the details above are correct and understand that this is a free community session run in accordance with hub safety guidelines.</span>
+            </label>
+            <div id="err-terms" class="error-msg">Please check the confirmation box above to proceed.</div>
+          </div>
+
+          <div class="form-actions">
+            <button id="step3-back-btn" type="button" class="btn btn-secondary">← Back</button>
+            <button id="step3-confirm-btn" type="button" class="btn btn-primary">Complete Free Booking ✓</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Booking Complete Screen -->
+        <div id="wizard-step-4" class="form-step">
+          <div class="booking-success-card">
+            <div class="success-icon-wrap" aria-hidden="true">✓</div>
+            <h4 style="font-size: 1.4rem; color: var(--primary); margin-bottom: 6px;">Booking Confirmed!</h4>
+            <p style="font-size: 0.95rem; color: var(--text-muted);">
+              Thank you, <strong id="conf-user-name">Resident</strong>. Your spot has been reserved.
+            </p>
+            <div class="ref-code-box">
+              Reference: <span id="ref-code-display">CWH-7821</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+              A confirmation email has been dispatched to <strong id="conf-email"></strong> for <strong id="conf-activity"></strong>. Please show this reference or your name upon arrival at the hub.
+            </p>
+            <button id="success-close-btn" class="btn btn-primary">Done & Return to Website</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accessible Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Community Wellbeing Hub</h4>
+        <p>
+          A joint public health initiative funded by the local municipal authority and NHS health partners. Dedicated to promoting inclusive health, emotional resilience, and active connection across Coventry and surrounding boroughs.
+        </p>
+        <p style="margin-top: 12px; font-size: 0.85rem; color: #cbd5e1;">
+          Registered Local Community Partnership No: CWP-88421
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services Directory</a></li>
+          <li><a href="#events">Events & Activities</a></li>
+          <li><a href="#stories">Community Stories</a></li>
+          <li><a href="#contact">Contact & Location</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Mental Health Guidance</a></li>
+          <li><a href="#services">Older Adult Socials</a></li>
+          <li><a href="#services">Gentle Fitness Groups</a></li>
+          <li><a href="#services">Budget & Energy Support</a></li>
+          <li><a href="#services">Family & Toddler Club</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Emergency Crisis Support</h4>
+        <p style="margin-bottom: 10px;">If you or someone you know is in immediate danger or severe distress:</p>
+        <ul class="footer-links">
+          <li><strong>NHS Emergency:</strong> 999</li>
+          <li><strong>NHS Mental Health Line:</strong> 111</li>
+          <li><strong>Samaritans Helpline:</strong> 116 123</li>
+          <li><strong>Shout Crisis Text:</strong> Text SHOUT to 85258</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        &copy; 2026 Coventry Community Wellbeing Hub. Developed for HCI & Web Development (505IT).
+      </div>
+      <div>
+        Designed in accordance with WCAG 2.1 AA Accessibility Standards.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Global bridge for category quick-cards
+    function filterByCategory(cat) {
+      const pills = document.querySelectorAll('.category-pills .filter-pill');
+      pills.forEach(p => {
+        if (p.dataset.category === cat) {
+          p.click();
+        }
+      });
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
